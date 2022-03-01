@@ -28,6 +28,66 @@ app.get('/getAll', (req,res)=>{
     .then(result=>res.json(result))
     .catch(err=>res.json(err));
 });
+app.post('/getOne',(req,res)=>{
+    const computerId=req.body.id;
+    if(computerId && computerId.length>0){
+        fetch(`http://localhost:4000/api/computers/${computerId}`,{mode:'cors'})
+        .then(data=>data.json())
+        .then(result=>res.json(result))
+        .catch(err=>res.json(err));
+    }
+    else{
+        res.json({message:'empty id', type:'error'});
+    }
+});
+
+app.post('/remove',(req,res)=>{
+    const computerId=req.body.id;
+
+    if(computerId && computerId.length>0){
+        fetch(`http://localhost:4000/api/computers/${computerId}`,{method:'DELETE',mode:'cors'})
+        .then(data=>data.json())
+        .then(result=>res.json(result))
+        .catch(err=>res.json(err));
+    }
+    else{
+        res.json({message:'empty id', type:'error'});
+    }
+});
+
+app.post('/add',(req,res)=>{
+    const computer=req.body;
+    const options={
+        method:'POST',
+        mode:'cors',
+        headers:{
+            'Content-Type':'application/json'
+        },
+        body:JSON.stringify(computer)
+    };
+    fetch('http://localhost:4000/api/computers',options)
+    .then(data=>data.json())
+    .then(result=>res.json(result))
+    .catch(err=>res.json(err));
+});
+
+app.post('/update',(req,res)=>{
+    const computer=req.body;
+    const options={
+        method:'PUT',
+        mode:'cors',
+        headers:{
+            'Content-Type':'application/json'
+        },
+        body:JSON.stringify(computer)
+    };
+    fetch(`http://localhost:4000/api/computers/${computer.id}`,options)
+    .then(data=>data.json())
+    .then(result=>res.json(result))
+    .catch(err=>res.json(err));
+});
+
+app.all('*',(req,res)=>res.json('Not supported'));
 
 server.listen(port,host,
     ()=>console.log(`Server ${host}:${port} running...`));

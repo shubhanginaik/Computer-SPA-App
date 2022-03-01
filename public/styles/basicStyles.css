@@ -15,3 +15,25 @@ table,th,td{
 thead{
     background-color: khaki;
 }
+button{
+    font-family: sans-serif;
+    width: 13em;
+    height: 2em;
+    margin: 4px;
+}
+
+.fields div{
+    display: grid;
+    font-weight: bold;
+}
+input{
+    margin: 5px;
+}
+.info{
+    border:solid green 1px;
+    padding: 1em;
+}
+.error{
+    border:dashed red 2px;
+    padding: 2em;
+}
