@@ -1,0 +1,17 @@
+main{
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+
+table{
+    border-collapse: collapse;
+    margin-bottom: 1em;
+}
+table,th,td{
+    border:solid black 1px;
+    padding: 0.5em;
+}
+thead{
+    background-color: khaki;
+}
