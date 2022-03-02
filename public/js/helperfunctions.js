@@ -6,7 +6,7 @@ function updateMessagearea(message,type){
     messagearea.setAttribute('class',type);
 }
 
-function cleareMessagearea(){
+function clearMessagearea(){
     const messagearea=document.getElementById('messagearea');
     messagearea.textContent='';
     messagearea.removeAttribute('class');

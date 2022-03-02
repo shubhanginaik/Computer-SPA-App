@@ -14,7 +14,7 @@
 
  async function send(){
 
-    cleareMessagearea();
+    clearMessagearea();
     const id= inputField.value;
     try{
         const options={

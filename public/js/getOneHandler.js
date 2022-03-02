@@ -13,7 +13,7 @@
     } //end of init
 
     async function send(){
-        cleareMessagearea();
+        clearMessagearea();
         resultarea.innerHTML='';
         const id=inputfield.value;
         try{

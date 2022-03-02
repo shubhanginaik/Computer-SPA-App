@@ -21,7 +21,7 @@
     } //end of init
 
     async function send(){
-        cleareMessagearea();
+        clearMessagearea();
         const computer={
             id:idField.value,
             name:nameField.value,
